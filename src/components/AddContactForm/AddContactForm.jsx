@@ -9,8 +9,9 @@ import {
   Label,
 } from './AddContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice/contactsSlice';
+// import { addContact } from 'redux/contactsSlice/contactsSlice';
 import { selectContacts } from 'redux/selectors';
+import { createContact } from 'redux/actions/contactActions';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').required('Required!'),
@@ -34,7 +35,7 @@ const AddContactForm = () => {
       alert(`${person.name} is already in contacts.`);
       return;
     }
-    dispatch(addContact(person));
+    dispatch(createContact(person));
   };
   return (
     <Wrapper>

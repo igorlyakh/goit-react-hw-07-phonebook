@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { deleteContact, fetchContacts } from 'utils';
+import { addNewContact, deleteContact, fetchContacts } from 'utils';
 
 export const getContacts = createAsyncThunk(
   'contacts/getContacts',
@@ -20,6 +20,20 @@ export const removeContact = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const res = await deleteContact(id);
+      return res;
+    } catch {
+      return rejectWithValue(
+        'Somethings went wrong! Reload page and try again!'
+      );
+    }
+  }
+);
+
+export const createContact = createAsyncThunk(
+  'contacts/createContact',
+  async (contact, { rejectWithValue }) => {
+    try {
+      const res = await addNewContact(contact);
       return res;
     } catch {
       return rejectWithValue(

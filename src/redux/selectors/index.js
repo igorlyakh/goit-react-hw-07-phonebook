@@ -1,1 +1,6 @@
-export { selectContacts, selectFilter } from './selectors';
+export {
+  selectContacts,
+  selectFilter,
+  selectError,
+  selectIsLoading,
+} from './selectors';

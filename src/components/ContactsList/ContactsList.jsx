@@ -3,7 +3,7 @@ import React from 'react';
 import { List, Wrapper } from './ContactsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/contactsSlice/contactsSlice';
+import { removeContact } from 'redux/actions/contactActions';
 
 const ContactsList = () => {
   const contacts = useSelector(selectContacts);
@@ -12,10 +12,9 @@ const ContactsList = () => {
   const dispatch = useDispatch();
 
   const onDelete = id => {
-    dispatch(deleteContact(id));
+    dispatch(removeContact(id));
   };
 
-  console.log(filter);
   const getFilteredContacts = () => {
     return contacts.filter(contact => {
       return contact.name.toLowerCase().includes(filter.toLowerCase());

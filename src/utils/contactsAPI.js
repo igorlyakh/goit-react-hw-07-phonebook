@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+import axios from 'axios';
 
 axios.defaults.baseURL = 'https://6573177f192318b7db41893b.mockapi.io/';
 

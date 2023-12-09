@@ -3,4 +3,5 @@ export {
   selectFilter,
   selectError,
   selectIsLoading,
+  selectFilteredContacts,
 } from './selectors';
